@@ -1,10 +1,11 @@
 package com.re.book.board.controller;
 
 import com.re.book.board.Service.BookService;
+import com.re.book.board.dto.BookCreateDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class controller {
@@ -18,9 +19,12 @@ public class controller {
     }
 
 
-    @ResponseBody
-    public String main() {
+    @PostMapping("/book/create")
+    public String insert(BookCreateDTO bookCreateDTO) {
 
-        return "아름아 엉엉 이제야 된다... ㅜㅜ";
     }
+
+
+
+
 }

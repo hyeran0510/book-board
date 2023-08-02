@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer bookid;
+    private Integer BookId;
 
     @Column(length = 200)
     private String title;

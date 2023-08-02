@@ -1,28 +1,31 @@
 package com.re.book.board.Service;
 
-
-
-import org.springframework.stereotype.Service;
-
 import com.re.book.board.dto.BookCreateDTO;
+import com.re.book.board.entity.Bookrepository;
+import lombok.Builder;
+import org.springframework.stereotype.Service;
 
 import java.awt.print.Book;
 
 
+@Builder
 @Service
+
 public class BookService {
-    private BookRepositoty bookRepositoty;
+    private Bookrepository bookRepository;
 
-    public BookService(BookRepositoty bookRepositoty) {
-        this.bookRepositoty = bookRepositoty;
+    public BookService(Bookrepository bookRepository) {
+        this.bookRepository = bookRepository;
     }
-    public Integer insert(BookCreateDTO bookCreateDTO) {
-        Book book = Book.Builder()  //Bookbuilder에 객체생성
-                        .title(bookCreateDTO.getTitle()) //타이틀에 데이터 세팅
-                        .price(bookCreateDTO.getPrice()) //가격데이터에 세팅
-                        .build(); //북 객체생성
-        this.bookRepositoty.save(book);
-        return book.getBookId();
 
+
+    public Integer insert(BookCreateDTO bookCreateDTO) {
+        Book book = book.builder()
+                        .title(bookCreateDTO.getTitle())
+                        .price(bookCreateDTO.getPrice())
+                        .build();
+        this.bookRepository.save(book);
+        return book.getbookid();
     }
 }
+
