@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 @Getter
 public class BookReadReponseDTO {
 
-
     private Integer Bookid;
     private String title;
     private Integer price;
@@ -19,8 +18,17 @@ public class BookReadReponseDTO {
 
     public BookReadReponseDTO fromBook(Book book) {
         this.bookid = book.getBookid();
-        this.title=book.getTitle();
-        
+        this.title = book.getTitle();
+        this.price = book.getPrice();
+        this.insertDateTime = book.getInsertDateTime();
+        return this;
+    }
+
+    public static BookReadReponseDTO bookReadReponseDTO(Book book) {
+        BookReadReponseDTO bookReadReponseDTO = new BookReadReponseDTO();
+        bookReadReponseDTO.fromBook(book);
+        return bookReadReponseDTO;
+    }
     }
 
 
